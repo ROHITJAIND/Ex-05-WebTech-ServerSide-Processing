@@ -1,34 +1,3 @@
-# Design a Website for Server Side Processing
-
-# AIM:
-
-To design a website to perform mathematical calculations in server side.
-
-# DESIGN STEPS:
-
-## Step 1:
-
-Desing your website for calculation using wireframe work.
-
-## Step 2:
-
-Then to execute the wireframe work desing use html,css.
-
-## Step 3:
-
-Use views.py to execute the coding in serverside.
-
-## Step 4:
-
-Mention the path of the website in urls.py
-
-## Step 5:
-
-Publish the website in the given URL.
-
-# PROGRAM:
-- HTML CODE:  
-```
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,44 +69,3 @@ Publish the website in the given URL.
     </div>
 </body>
 </html>
-```
-- views.py :
-```
-from django.shortcuts import render
-
-def volumecalculation(request):
-    context ={}
-    context["volume"]='0'
-    context["h"]='0'
-    context["l"]='0'
-    context["w"]='0'
-    if request.method == 'POST':
-        
-        h=request.POST.get('height','0')
-        l=request.POST.get('length','0')
-        w=request.POST.get('width','0')
-        volume=int(h)*int(l)*int(w)
-        context['volume'] = volume
-        context['l']=l
-        context['h']=h
-        context['w']=w
-    return render(request,"volume/math.html",context)
-```
-- urls.py :
-```
-from django.contrib import admin
-from django.urls import path
-from volume import views
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('volofrectangulartank/',views.volumecalculation,name="volofrectangulartank"),
-    path('',views.volumecalculation,name="volofrectangulartankroot")
-]
-```
-
-# OUTPUT:
-
-# RESULT:
-
-A website to perform mathematical calculations in server side is created.
